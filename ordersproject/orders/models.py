@@ -3,7 +3,7 @@ import datetime
 
 
 class Order(models.Model):
-    order_id = models.CharField(max_length=100)
+    order_id = models.CharField(max_length=100, primary_key=True, unique=True)
     marketplace = models.CharField(max_length=100)
     order_purchase_date = models.DateField(
         default=datetime.date.today, null=True

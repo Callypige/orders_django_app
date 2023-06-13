@@ -32,14 +32,6 @@ class Command(BaseCommand):
                 order_currency = order.find("order_currency").text
                 order_amount = order.find("order_amount").text
 
-                # Display field values
-                print("order_id =", order_id)
-                print("marketplace =", marketplace)
-                print("order_purchase_date =", order_purchase_date)
-                print("order_currency =", order_currency)
-                print("order_amount =", order_amount)
-                print()
-
                 # Now need to create an order object
                 order = Order.objects.create(
                     order_id=order_id,
@@ -51,10 +43,10 @@ class Command(BaseCommand):
 
                 order.save()
 
+                self.stdout.write(f"Order saved : {order}")
+
             # Indicate successful processing
-            self.stdout.write(
-                self.style.SUCCESS("Successfully processed the XML file.")
-            )
+            self.stdout.write(self.style.SUCCESS("Successfully saved data."))
         except Exception as e:
             # Handle invalid XML file error
             self.stderr.write(self.style.ERROR(f"Error : {e}"))
