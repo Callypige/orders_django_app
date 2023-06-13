@@ -1,9 +1,10 @@
 from django.db import models
+import datetime
 
 
 class Order(models.Model):
-    marketplace = models.CharField(max_length=100)
-    idFlux = models.CharField(max_length=100)
-    order_status_marketplace = models.CharField(max_length=100)
-    order_status_lengow = models.CharField(max_length=100)
     order_id = models.CharField(max_length=100)
+    marketplace = models.CharField(max_length=100)
+    order_purchase_date = models.DateField(default=datetime.date.today)
+    order_currency = models.CharField(max_length=10, default="EUR")
+    order_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
