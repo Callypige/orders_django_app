@@ -1,6 +1,5 @@
 from django.core.management import call_command
-from django.test import TestCase, Client
-from django.urls import reverse
+from django.test import TestCase
 from io import StringIO
 from orders.models import Order
 import datetime
