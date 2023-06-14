@@ -51,9 +51,6 @@ class Command(BaseCommand):
                     self.stdout.write(
                         self.style.ERROR(f"Order already exists: {order_obj}")
                     )
-
-            # Indicate successful processing
-            self.stdout.write(self.style.SUCCESS("Successfully saved data."))
         except Exception as e:
             # Handle invalid XML file error
             self.stderr.write(self.style.ERROR(f"Error : {e}"))
